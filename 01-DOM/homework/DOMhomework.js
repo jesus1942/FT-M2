@@ -62,17 +62,25 @@ ToDo.prototype.completeToDo = function() {
 
 function buildToDo(todo, index) {
   // Tu código acá:
-  let toDoShell = document.createElement( 'div');
+  const checkBox = document.createElement('input');
+  checkBox.type = 'checkbox';
+  checkBox.id = index;
+  checkBox.className = 'completeCheckbox';
+  checkBox.addEventListener('click', completeToDo);
+
+  const toDoShell = document.createElement( 'div');
   toDoShell.className = 'toDoShell';
 
-  let toDoText = document.createElement('span');
+  const toDoText = document.createElement('span');
 
   toDoText.innerHTML = todo.description; 
   toDoText.id = index;
   if(todo.complete) {
+    checkBox.checked = true;
     toDoText.className = 'completeText';
 
   }
+  toDoShell.appendChild(checkBox);
   toDoShell.appendChild(toDoText);
 
   // if(todo.complete) {
