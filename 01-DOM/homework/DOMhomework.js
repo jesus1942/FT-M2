@@ -9,9 +9,17 @@ let toDoItems = [];
 // Tu código acá:
 
 
+const h1 = document.querySelector('#title');
+h1.innerHTML += 'lication :)'
+
 
 let span = document.querySelector('#createdBy');
-span.innerHTML += ' Jesus';
+span.innerHTML = 'Aplicación creada por: Jesus';
+
+const img = document.querySelector('#image');
+img.src = './assets/kali.png';
+
+
 
 
 
@@ -75,18 +83,16 @@ function buildToDo(todo, index) {
 
   toDoText.innerHTML = todo.description; 
   toDoText.id = index;
+  
   if(todo.complete) {
     checkBox.checked = true;
     toDoText.className = 'completeText';
 
-  }
+  } 
+
   toDoShell.appendChild(checkBox);
   toDoShell.appendChild(toDoText);
 
-  // if(todo.complete) {
-    // todoText.className = 'completeText';
-
-  // };
 
   
 
@@ -173,6 +179,7 @@ button.addEventListener('click', addToDo);
 //   2) Llamar a displayToDos para actualizar los elementos que se van a mostrar en pantalla
 //   3) En la función 'buildToDo' agregar un 'click' event listener al elemento 'toDoText', pasándole
 //      esta función como callback
+//----------------------------------------------------------------------------------------------------------------------------------//
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
@@ -184,6 +191,9 @@ function completeToDo(event) {
     toDoItems[index].completeToDo();
     displayToDos();
 }
+
+
+
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
 
@@ -216,4 +226,4 @@ if (typeof module !== 'undefined') {
     displayToDos: displayToDos,
     addToDo: addToDo
   };
-}
+};
