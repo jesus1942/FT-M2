@@ -164,13 +164,22 @@ nav {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  background-color: #F6F6F6;
+  align-items: center;
+}
+nav h2 {
+  text-align: center;
+  text-transform: uppercase;
 }
 nav ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  padding: 5px;
 }
-nav li {
-  margin: 5px;
+nav a {
+  padding: 5px;
+  text-decoration: none;
+  color: #5E6164;
 }
 footer {
   color: #22283B;
@@ -182,11 +191,21 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.nav {
+  /*background-color: rgb(242, 235, 235);*/
+  max-width: 100%;
+}
+.home .intro {
+  padding: 5px;
+}
+.home .intro img {
+  border-radius: 10px;
+}
 .home .intro h2 {
-  padding: 15px;
+  padding: 5px;
 }
 .home .intro p {
-  padding: 0 15px;
+  padding: 0 5px;
 }
 .home .music-images {
   display: flex;

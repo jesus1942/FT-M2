@@ -2,16 +2,27 @@
 // Código de Nav acá
 
 nav {
+    
     padding: 15px;
     display: flex;
     flex-direction: column;
+    background-color: @nav-bg;
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
     ul{
         display: flex;
-        flex-direction: row;
-
+        flex-direction: row-reverse;
+        padding: 5px;
     }
-    li {
-        margin: 5px;
+    a {
+    
+        padding: 5px;
+        text-decoration: none;
+        color: @main-font-color;
     }
-
+    align-items: center;
+    
 }
