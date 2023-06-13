@@ -46,7 +46,7 @@ function ToDo (description) {
 // Tu código acá:
 
 ToDo.prototype.completeToDo = function() {
-  this.complete = true;
+  this.complete = !this.complete;
 };
 
 
