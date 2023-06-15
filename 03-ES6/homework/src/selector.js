@@ -9,6 +9,8 @@ var traverseDomAndCollectElements = function(matchFunc, startEl) {
   // usa matchFunc para identificar elementos que matchien
 
   // TU CÓDIGO AQUÍ
+var elements = traverseDomAndCollectElements(function(elements) {
+    return element.classList.contains("")})
   
 };
 
