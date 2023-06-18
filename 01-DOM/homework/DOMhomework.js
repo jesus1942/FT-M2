@@ -50,6 +50,7 @@ ToDo.prototype.completeToDo = function() {
 };
 
 
+
 // Agregar dos parámetros a la función 'buildToDo':
 //    1) Un objeto de la clase ToDo
 //    2) Index numérico
@@ -76,6 +77,18 @@ function buildToDo(todo, index) {
   checkBox.className = 'completeCheckbox';
   checkBox.addEventListener('click', completeToDo);
 
+ // Crear elementos de icono para eliminar y editar
+  const deleteIcon = document.createElement('i');
+  deleteIcon.className = 'fas fa-trash delete-icon';
+  deleteIcon.addEventListener('click', () => deleteToDo(index));
+
+  const editIcon = document.createElement('i');
+  editIcon.className = 'fas fa-edit edit-icon';
+  editIcon.addEventListener('click', () => editToDo(index));
+
+  
+
+  
   const toDoShell = document.createElement( 'div');
   toDoShell.className = 'toDoShell';
 
@@ -92,7 +105,9 @@ function buildToDo(todo, index) {
 
   toDoShell.appendChild(checkBox);
   toDoShell.appendChild(toDoText);
-
+  toDoShell.appendChild(deleteIcon);
+  toDoShell.appendChild(editIcon);
+  
 
   
 
@@ -135,6 +150,39 @@ function displayToDos() {
   
 }
 
+function deleteToDo(index) {
+  // Eliminar el elemento del array 'toDoItems'
+  const confirmation = confirm("¿Estás seguro de eliminar esta tarea?");
+
+  if (confirmation) {
+    // Eliminar el elemento del array 'toDoItems' y actualizar la vista
+    toDoItems.splice(index, 1);
+    displayToDos();
+  }
+  //toDoItems.splice(index, 1);
+
+  // Actualizar la vista llamando a la función 'displayToDos'
+  //displayToDos();
+}
+
+function editToDo(index) {
+  // Obtener el elemento ToDo correspondiente al índice 'index'
+  const toDo = toDoItems[index];
+
+  // Mostrar un formulario de edición con la descripción actual
+  const newDescription = prompt('Ingrese la nueva descripción', toDo.description);
+
+  // Verificar si se ingresó una nueva descripción
+  if (newDescription !== null && newDescription !== '') {
+    // Actualizar la descripción del ToDo
+    toDo.description = newDescription;
+
+    // Actualizar la vista llamando a la función 'displayToDos'
+    displayToDos();
+  }
+}
+
+
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
 // [NOTA: Algunas cuestiones a tener en cuenta sobre el elemento 'input' de HTML (Ya que 'toDoInput' es un input)
 // Todos los elementos input tienen una propiedad llamada 'value' que nos permite acceder al texto que se encuentre
@@ -147,14 +195,41 @@ function displayToDos() {
 function addToDo() {
   // Tu código acá:
   let input = document.querySelector('#toDoInput');
+  let inputValue = input.value.trim();
 
-  if(input.value !== "") {
+  if(inputValue !== '') {
+    const isDuplicate = toDoItems.some(todo => todo.description === inputValue);
+
+    if (isDuplicate) {
+      alert('Esta tarea ya existe. Por favor, ingresa una tarea diferente');
+    } else {
+      let todo = new ToDo(input.value);
+      toDoItems.push(todo);
+      input.value = "";
+
+      //Actualizar vista
+      displayToDos(); 
+    }
+  }
+
+  //Agregar un evento de escucha para la tecla Enter
+  //let input = document.querySelector("#toDoiInput");
+  input.addEventListener('keydown',function(event) {
+    if (event.key === 'Enter') {
+      addToDo();
+      displayToDos();
+    }
+  });
+
+
+  /*if(input.value !== "") {
     let todo = new ToDo(input.value);
     toDoItems.push(todo);
     input.value = "";
 
     displayToDos();
-  }
+  }*/
+
 }
 
 // Agregar un 'Event Listener' para que cada vez que el botón 'AGREGAR' sea clickeado
@@ -174,7 +249,7 @@ button.addEventListener('click', addToDo);
 // el tipo del evento, que elemento fue el que lo llamó, los valores de dicho elemento, etc.
 // En este paso vamos a utilizarlo para encontrar el index del item que disparó el evento (Esta parte ya se
 // encuentra desarrollada pero está comentada dentro de la función por lo que va a ser necesario que la descomenten)]
-//   1) Utilizando el index suministrdo, llamar a 'completeToDo' (Recuerden que habíamos creado dcho método en el
+//   1) Utilizando el index suministrado, llamar a 'completeToDo' (Recuerden que habíamos creado dcho método en el
 //      prototipo de la clase ToDo) sobre el elemento correspondiente del array toDoItems
 //   2) Llamar a displayToDos para actualizar los elementos que se van a mostrar en pantalla
 //   3) En la función 'buildToDo' agregar un 'click' event listener al elemento 'toDoText', pasándole
@@ -214,6 +289,8 @@ function completeToDo(event) {
 // Acá debes insertar la llamada a 'displayToDos'
 
 displayToDos();
+
+
 
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
 if (typeof module !== 'undefined') {
