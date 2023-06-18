@@ -46,28 +46,37 @@ a img {
 
 
 #container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #454974;
   /*background-color: #428fbb;*/
   box-shadow: 1px 20px 150px#000;
-  width: 50%;
-  min-width: 700px;
+  /*width: 1em;*/
+  /*min-width: 900px;*/
   border-radius: 5px;
 }
 
 #inputContainer {
   display: flex;
+  
   justify-content: center;
-  padding: 10px;
-  margin-bottom: 25px;
+  /*padding: 1em;*/
+  /*margin-bottom: 25px;*/
+  padding: 1em;
 }
 
 #toDoInput {
-  outline: none;
-  width: 75%;
-  padding-left: 10px;
-  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*outline: none;*/
+  /*width: 100%;*/
+  /*padding-left: 10px;*/
+  font-size: 2em;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25em;
 }
 
 #addButton {
@@ -87,6 +96,7 @@ a img {
 #toDoContainer {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   cursor: pointer;
