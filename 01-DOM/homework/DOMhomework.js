@@ -197,6 +197,16 @@ function addToDo() {
   let input = document.querySelector('#toDoInput');
   let inputValue = input.value.trim();
 
+
+  input.addEventListener('keydown',function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addToDo();
+      //displayToDos();
+    }
+  });
+  
+
   if(inputValue !== '') {
     const isDuplicate = toDoItems.some(todo => todo.description === inputValue);
 
@@ -207,19 +217,17 @@ function addToDo() {
       toDoItems.push(todo);
       input.value = "";
 
+      
       //Actualizar vista
       displayToDos(); 
     }
+
+    
   }
 
   //Agregar un evento de escucha para la tecla Enter
   //let input = document.querySelector("#toDoiInput");
-  input.addEventListener('keydown',function(event) {
-    if (event.key === 'Enter') {
-      addToDo();
-      displayToDos();
-    }
-  });
+
 
 
   /*if(input.value !== "") {

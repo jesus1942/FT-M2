@@ -45,6 +45,12 @@ let amigos = [
     name: "Manu",
     age: 47,
     email: "manu@henry.com"
+  },
+  {
+    id: 7,
+    name: "Jesus",
+    age: 35,
+    email: "chucky9425@henry.com"
   }
 ];
 
