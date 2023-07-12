@@ -1,3 +1,61 @@
-.App {
+/* Estilos para SearchBar */
+.search-bar-container {
+   display: flex;
+   align-items: center;
+   background-color: #222;
+   padding: 10px;
+   border-radius: 5px;
+ }
+ 
+ .search-bar-input {
+   flex-grow: 1;
+   background-color: transparent;
+   border: none;
+   color: #fff;
+   margin-right: 10px;
+ }
+ 
+ .search-bar-button {
+   background-color: #444;
+   color: #fff;
+   border: none;
+   padding: 8px 16px;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ 
+ /* Estilos para Cards */
+ .card-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+ }
+ 
+ .card {
+   border: 1px solid rgba(243, 244, 246, 0);
+   border-radius: 5px;
+   padding: 10px;
+   margin: 10px;
    text-align: center;
-}
+   background-color: #333;
+   color: #fff;
+ }
+ 
+ .card button {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+ }
+ 
+ .card h2 {
+   margin: 5px 0;
+ }
+ 
+ .card img {
+   width: 100%;
+   max-width: 200px;
+   height: auto;
+   margin-top: 10px;
+   border-radius: 50%;
+ }
+ 

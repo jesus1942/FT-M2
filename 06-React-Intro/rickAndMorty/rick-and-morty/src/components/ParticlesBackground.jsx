@@ -1,22 +1,26 @@
-import react, { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
+import particlesConfig from './config/particles-config';
 
 const ParticlesBackground = () => {
+    
 
-    const particlesInit = useCallback((engine)
-    loadFull(engine)
-},[])    
+    const particlesInit = useCallback((engine) => {
+        loadFull(engine)
+    }, [])
+    
 
-return (
-    <div>
-        <Particles 
-        //id="tsparticles"
-        //options = {options}
-        Init = {particlesInit}
-        />
+    return (
+        <div>
+            <Particles 
+            // id="tsparticles"
+            options = {particlesConfig}
+            init = {particlesInit}
+            />
 
-    </div> 
-);
+        </div> 
+    );
+};
 
 export default ParticlesBackground;

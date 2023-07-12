@@ -8,7 +8,7 @@
 
 ---
 
-<div align="center">
+<div align-itmes="center">
 
 ## **💻 RICK AND MORTY APP 💻**
 

@@ -1,0 +1,26 @@
+* {
+    background-color: black;
+    text-transform: capitalize;
+    color: white;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+#boton {
+    background-color: red;
+    position: absolute;
+    margin: 0 0 0 15em;
+    border-radius: 5px;
+    border: none;
+} 
+#lista{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    padding: 2em;
+}

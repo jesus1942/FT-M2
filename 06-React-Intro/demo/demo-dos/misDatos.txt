@@ -1,0 +1,11 @@
+const data: [
+    { name: 'Jesus Olguin',
+    house: 'Griffindor',
+    wand: 'Ébano',
+    patronus: 'Gato de jengibre',
+    muggleCountry: 'Argentina',
+    avatar: url(),
+    hobbies: [pasear con mi hijo, arreglar cosas],
+    Birthday: '1988-06-29'
+    }
+]

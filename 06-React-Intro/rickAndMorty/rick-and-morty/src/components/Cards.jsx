@@ -1,12 +1,11 @@
-
-
+ 
 import React from 'react';
 import Card from './Card';
 
-export default function Cards(props) {
+export default function Cards(props)  {
    return (
       <>
-         <div>
+         <div className='card-container'>
             {props.characters.map((character) => (
                <Card
                   key={character.id}

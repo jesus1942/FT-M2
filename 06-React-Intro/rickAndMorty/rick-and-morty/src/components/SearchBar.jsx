@@ -5,7 +5,11 @@ export default function SearchBar(props) {
 
   const handleSearch = () => {
     // Ejecutar la función onSearch pasando el valor de búsqueda
+    if (searchValue.trim() !== '') {
+      // Ejecuta la funcion onSearch pasando el valor de búsqueda
     props.onSearch(searchValue);
+
+    }
   };
 
   const handleChange = (event) => {
